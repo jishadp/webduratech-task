@@ -1,1 +1,37 @@
-$(document).ready(function(){$(".doStatusChange").click(function(t){var a=$(this).attr("action"),e=$(this).attr("status"),s=$(this).attr("book-id"),i=$(this);i.closest(".holdr").addClass("hiddenDiv").slideUp("slow"),$.ajax({type:"POST",url:a,data:{status:e,book_id:s},success:function(t){200==t.status?(i.closest("body").find(".header div a.active span").html(parseInt(i.closest("body").find(".header div a.active span").html()-1)),i.closest("body").find(".header div a.active").parent().next().find("span").html(parseInt(i.closest("body").find(".header div a.active").parent().next().find("span").html())+1),i.closest(".mainDiv").children().not(".hiddenDiv").length<5&&$(".viewMrBtn").remove()):alert("ERROR !!. Please contact system administrator")}})})});
+$(document).ready(function(){
+    $(".doStatusChange").click(function(e){
+        var action = $(this).attr('action');
+        var status = $(this).attr('status');
+        var bookId = $(this).attr('book-id');
+        var element = $(this);
+        element.closest('.holdr').addClass('hiddenDiv').slideUp("slow");
+        $.ajax({
+            type: 'POST',
+            url:action,
+            data:{
+                'status':status,
+                'book_id':bookId
+            },
+            success: function(response) {
+
+                if(response.status ==200){
+                    element.closest('body').find('.header div a.active span').html(
+                        parseInt(element.closest('body').find('.header div a.active span').html()-1)
+                    )
+                    element.closest('body').find('.header div a.active').parent().next().find('span').html(
+                        parseInt(element.closest('body').find('.header div a.active').parent().next().find('span').html())+1
+                    )
+                    var rowCount = element.closest('.mainDiv').children().not('.hiddenDiv').length;
+                    if(rowCount < 5){
+                        $('.viewMrBtn').remove();
+                    }
+                }else{
+                    alert('ERROR !!, Please contact system administrator...')
+                }
+                
+                
+            }
+        });
+    });
+    
+});
