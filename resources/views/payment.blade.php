@@ -62,7 +62,7 @@
                     </div>
                     <div class="row btnHldr">
                        <button class="btn w50 btn-primary">Start Chat</button>
-                       <button class="btn w50 btn-primary doStatusChange">Resend Invoice</button>
+                       <button class="btn w50 btn-primary">Resend Invoice</button>
                     </div>
                  </div>
             @endforeach

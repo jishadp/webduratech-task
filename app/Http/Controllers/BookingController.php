@@ -19,9 +19,14 @@ class BookingController
         return view('payment',compact('bookings'));
     }
     public function changeStatus(){
-        Booking::find(decrypt(request('book_id')))->update([
-            'status'    => decrypt(request('status'))
-        ]); 
-        return ['status'=>200];
+        try {
+            Booking::find(decrypt(request('book_id')))->update([
+                'status'    => decrypt(request('status'))
+            ]); 
+            return ['status'=>200];
+        } catch (\Throwable $th) {
+            return ['status'=>300];
+        }
+       
     }
 }
