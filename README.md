@@ -1,3 +1,5 @@
-## Clone the Repo
 
-## php artisan migrate --seed
+
+# Clone the Repo
+
+#run php artisan migrate --seed
