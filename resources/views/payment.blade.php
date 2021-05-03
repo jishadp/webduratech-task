@@ -30,26 +30,25 @@
                        </div>
                     </div>
                     <div class="row proArea">
-                       <div class="w50">
-                          <div class="pull-left w10"><img class="thumbImg" src="{{ asset('public/images/avatar.jpeg')  }}" alt=""></div>
-                          <div class="w50">
-                             <p>Ray Pressley</p>
-                             <p>San Francisco</p>
-                          </div>
-                       </div>
-                       <div class="w50">You two had 12 deals before</div>
-                    </div>
+                            <div class="w50">
+                               <div class="pull-left w10"><img class="thumbImg" src="{{ $booking->image_url }}" alt=""></div>
+                               <div class="w50">
+                                  <p>{{ $booking->customer_name }}</p>
+                                  <p>{{ $booking->customer_location }}</p>
+                               </div>
+                            </div>
+                            <div class="w50">You two had 12 deals before</div>
+                         </div>
                     <div class="row">This constomer is available at:</div>
                     <div class="row">
                        <div class="lister">
+                            <img src="{{ asset('public/images/clock.png') }}" alt="">
                           <ul>
                              <li>
-                                <span>Icon</span>
                                 <span>Sunday,December 22nd,2019</span>
                                 <span>9.00 am - 2.00pm</span>
                              </li>
                              <li>
-                                <span>Icon</span>
                                 <span>Sunday,December 22nd,2019</span>
                                 <span>9.00 am - 2.00pm</span>
                              </li>
@@ -57,8 +56,8 @@
                        </div>
                     </div>
                     <div class="row">
-                       <div class="icns">Icon</div>
-                       <div class="Locantn">50 Hagiwara Tea Garden Dr,San Francisco, CA 94118</div>
+                        <div class="icns"><img src="{{ asset('public/images/loc.png') }}" alt=""></div>
+                        <div class="Locantn">{{ $booking->customer_address }}</div>
                     </div>
                     <div class="row btnHldr">
                        <button class="btn w50 btn-primary">Start Chat</button>

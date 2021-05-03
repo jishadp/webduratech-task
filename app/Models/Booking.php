@@ -9,7 +9,7 @@ class Booking extends Model
     protected $primaryKey = 'booking_id';
 
     protected $fillable = [
-        'status'
+        'status','location','name','address','image'
     ];
 
     public function getEncryptedIdAttribute(){
@@ -26,5 +26,9 @@ class Booking extends Model
         return $query->where('status',2);
     }
 
-    protected $appends = ['encrypted_id'];
+    public function getImageUrlAttribute(){
+        return asset('public/images/'.$this->customer_image);
+    }
+
+    protected $appends = ['encrypted_id','image_url'];
 }
