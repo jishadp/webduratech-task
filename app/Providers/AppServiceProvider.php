@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $bookings = Booking::all();
-        // view()->share('tabBooks', $bookings);
+        $bookings = Booking::all();
+        view()->share('tabBooks', $bookings);
     }
 }
